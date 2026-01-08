@@ -4,7 +4,17 @@
     "ejs": "^3.1.10",
     "express": "^4.21.1",
     "express-fileupload": "^1.5.1",
-    "mysql": "^2.18.1",
+    "mysql": "^2.18.1"
+  },
+  "name": "day17_a2z_soft",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start":"node index.js"
-  }
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
