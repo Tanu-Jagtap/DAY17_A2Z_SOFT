@@ -1,0 +1,32 @@
+<%-include("navbar.ejs") %>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-12 text-center mb-5">
+            <img src="/a2z_logo.jpg" style="height: 200px;width: 200px;border-radius: 50%;">
+        </div>
+        <div class="col-md-4">
+            <a href="/students" style="text-decoration: none;">
+            <div class="p-4 bg-dark text-white">
+                <h2>Total Students</h2>
+                <h5><%-students.length %> Students</h5>
+            </div>
+        </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/languages" style="text-decoration: none;">
+            <div class="p-4 bg-dark text-white">
+                <h2>Total Languages</h2>
+                <h5><%-languages.length %> Languages</h5>
+            </div>
+        </a>
+        </div>
+        <div class="col-md-4">
+            <a href="/batches" style="text-decoration: none;">
+            <div class="p-4 bg-dark text-white">
+                <h2>Total Batches</h2>
+                <h5><%-batches.length %> Batches</h5>
+            </div>
+            </a>
+        </div>
+    </div>
+</div>

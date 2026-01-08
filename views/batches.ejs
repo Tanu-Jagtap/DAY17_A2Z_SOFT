@@ -1,0 +1,96 @@
+<%-include("navbar.ejs") %>
+<div class="container mt-5 p-2" style="background-color: aliceblue;">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Batches</h2>
+        </div>
+        <div class="col-md-6 text-end">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_batch_modal">+ Add Batch</button>
+        </div>
+        <div class="col-md-12 mt-3 mb-5">
+            <table class="table table-bordered  table-hover" id="example">
+                <thead class="table-primary">
+                <tr>
+                    <th>Action</th>
+                    <th>SR.NO</th>
+                    <th>No</th>
+                    <th>Time</th>
+                    <th>Mode</th>
+                    <th>Start Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% batches.map((row,i)=>{ %>
+                    <tr>
+                    <td>
+                        <div class="text-center">
+                        <a class="btn btn-primary">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </div>
+                    </td>
+                       
+                    <td><%- i+1 %></td>
+                    <td><%- row.batch_no %></td>
+                    <td><%- row.batch_time %></td>
+                    <td><%- row.batch_mode %></td>
+                    <td><%- row.batch_start_date %></td>
+                </tr>
+               <% }) %>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<form action="/save_batch" method="post">
+<!-- The Modal -->
+<div class="modal" id="add_batch_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add Batch</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12">
+            Enter Batch No
+            <input type="number" name="batch_no" class="form-control">
+        </div>
+        <div class="col-md-12">
+            Enter Batch Time
+            <input type="text" name="batch_time" class="form-control">
+        </div>
+        <div class="col-md-12">
+            Enter Batch Mode
+            <input type="text" name="batch_mode" class="form-control">
+        </div>
+        <div class="col-md-12">
+            Enter Start Date
+            <input type="date" name="batch_start_date" class="form-control">
+        </div>
+      </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="text-center mb-3">
+        <button class="btn btn-primary">Save Batch</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</form>
+
+<%-include("footer.ejs") %>
+
+
+

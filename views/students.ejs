@@ -1,0 +1,89 @@
+<%-include("navbar.ejs") %>
+<div class="container mt-5 p-2" style="background-color: aliceblue;">
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Students</h2>
+        </div>
+        <div class="col-md-6 text-end">
+            <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#add_student_modal">+ Add Student</button>
+        </div>
+        <div class="col-md-12 mt-3 mb-5">
+            <table class="table table-bordered  table-hover" id="example">
+                <thead class="table-primary">
+                <tr>
+                    <th>Action</th>
+                    <th>SR.NO</th>
+                    <th>Name</th>
+                    <th>Mobile</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% students.map((row,i)=>{ %>
+                    <tr>
+                    <td>
+                        <div class="text-center">
+                        <a class="btn btn-primary">
+                            <i class="fa fa-edit"></i>
+                        </a>
+                        <a class="btn btn-danger">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </div>
+                    </td>
+                       
+                    <td><%- i+1 %></td>
+                    <td><%- row.student_name %></td>
+                    <td><%- row.student_mobile %></td>
+                    <td><%- row.student_address %></td>
+                </tr>
+               <% }) %>
+            </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<form action="/save_student" method="post">
+<!-- The Modal -->
+<div class="modal" id="add_student_modal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">Add Student</h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+      <div class="row">
+        <div class="col-md-12">
+            Enter Name
+            <input type="text" name="student_name" class="form-control">
+        </div>
+        <div class="col-md-12">
+            Enter Mobile
+            <input type="number" name="student_mobile" class="form-control">
+        </div>
+        <div class="col-md-12">
+            Enter Address
+           <textarea name="student_address" class="form-control"></textarea>
+        </div>
+      </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="text-center mb-3">
+        <button class="btn btn-primary">Save Student</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+</form>
+
+<%-include("footer.ejs") %>
+
+
